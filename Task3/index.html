@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Advanced Styling and JavaScript – Task 3 Internship Project for ApexPlanet Software Pvt. Ltd. Demonstrating responsive design with media queries, interactive JavaScript quiz & carousel, and asynchronous API data fetching.">
+  <meta name="theme-color" content="#0b1120">
+  <title>Advanced Styling and JavaScript – Task 3 | ApexPlanet Software</title>
+  
+  <!-- Google Fonts: Plus Jakarta Sans, Outfit & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Decorative Tech Background Shapes -->
+  <div class="bg-shape shape-1" aria-hidden="true"></div>
+  <div class="bg-shape shape-2" aria-hidden="true"></div>
+  <div class="bg-shape shape-3" aria-hidden="true"></div>
+  <div class="bg-grid-overlay" aria-hidden="true"></div>
+
+  <!-- Sticky Glassmorphism Header -->
+  <header class="site-header" id="siteHeader">
+    <div class="nav-container">
+      <a href="#hero" class="brand-logo" aria-label="ApexPlanet Software Home">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+            <polyline points="2 17 12 22 22 17"></polyline>
+            <polyline points="2 12 12 17 22 12"></polyline>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">ApexPlanet</span>
+          <span class="brand-sub">Internship Portal</span>
+        </div>
+      </a>
+
+      <!-- Live Breakpoint Chip in Header -->
+      <div class="viewport-indicator" id="headerBreakpointChip" title="Current Window Breakpoint">
+        <span class="indicator-dot"></span>
+        <span id="headerBreakpointText">Desktop (1200px+)</span>
+      </div>
+
+      <!-- Navigation Links -->
+      <nav class="nav-links" id="navLinks">
+        <a href="#hero" class="nav-link active">Home</a>
+        <a href="#task1" class="nav-link">Task 1: Media Queries</a>
+        <a href="#task2" class="nav-link">Task 2: Quiz & Carousel</a>
+        <a href="#task3" class="nav-link">Task 3: API Fetch</a>
+        <a href="#progressSection" class="nav-link">Milestone Progress</a>
+      </nav>
+
+      <!-- Header Action & Mobile Menu Button -->
+      <div class="header-actions">
+        <a href="#task1" class="btn btn-sm btn-primary">Explore Tasks</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="mainContent">
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+      <div class="hero-container">
+        
+        <!-- Internship Badges -->
+        <div class="badge-group animate-fade-in">
+          <span class="badge badge-task">
+            <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" fill="none" stroke-width="2">
+              <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+            </svg>
+            TASK – 3
+          </span>
+          <span class="badge badge-timeline">
+            <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" fill="none" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            Timeline: 9 Days
+          </span>
+          <span class="badge badge-company">
+            ApexPlanet Software Pvt. Ltd.
+          </span>
+        </div>
+
+        <!-- Main Heading -->
+        <h1 class="hero-title animate-fade-in delay-1">
+          Advanced Styling and <span class="gradient-text">JavaScript</span>
+        </h1>
+
+        <!-- Objective Statement -->
+        <div class="objective-card animate-fade-in delay-2">
+          <div class="objective-icon">
+            <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" fill="none" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <circle cx="12" cy="12" r="6"></circle>
+              <circle cx="12" cy="12" r="2"></circle>
+            </svg>
+          </div>
+          <div class="objective-content">
+            <span class="objective-label">Project Objective</span>
+            <p class="objective-text">Gain advanced skills in CSS and JavaScript for building interactive, responsive sites.</p>
+          </div>
+        </div>
+
+        <!-- Hero CTAs -->
+        <div class="hero-actions animate-fade-in delay-3">
+          <a href="#task1" class="btn btn-primary">
+            <span>View Task 1: Media Queries</span>
+            <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" fill="none" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+          <a href="#task2" class="btn btn-secondary">
+            <span>Try Quiz & Carousel</span>
+          </a>
+          <a href="#task3" class="btn btn-outline">
+            <span>Fetch Live API</span>
+          </a>
+        </div>
+
+        <!-- Quick Summary Stats -->
+        <div class="hero-metrics-grid animate-fade-in delay-4">
+          <div class="metric-card">
+            <div class="metric-number">01</div>
+            <div class="metric-info">
+              <h4>Media Queries</h4>
+              <p>Mobile, Tablet & Desktop responsive layouts</p>
+            </div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-number">02</div>
+            <div class="metric-info">
+              <h4>DOM & Interactivity</h4>
+              <p>Quiz engine with scoring + auto-carousel</p>
+            </div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-number">03</div>
+            <div class="metric-info">
+              <h4>Async API Fetch</h4>
+              <p>Dynamic data rendering with JSONPlaceholder</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 1: Apply Responsive Design Using Media Queries -->
+    <section class="task-section" id="task1">
+      <div class="section-container">
+        
+        <div class="section-header">
+          <div class="task-tag">Module 1</div>
+          <h2 class="section-title">Apply Responsive Design Using Media Queries</h2>
+          <p class="section-desc">
+            Media queries are the cornerstone of modern responsive web design. They allow styles to adapt seamlessly based on screen dimensions, orientation, and resolution, ensuring that webpages deliver an optimal user experience on <strong>mobile</strong>, <strong>tablet</strong>, and <strong>desktop</strong> viewports.
+          </p>
+        </div>
+
+        <!-- Explanation Cards Grid -->
+        <div class="devices-grid">
+          <div class="device-card">
+            <div class="device-icon">
+              <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" fill="none" stroke-width="2">
+                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                <line x1="12" y1="18" x2="12.01" y2="18"></line>
+              </svg>
+            </div>
+            <h3 class="device-name">Mobile Screens</h3>
+            <span class="breakpoint-code">@media (max-width: 640px)</span>
+            <p class="device-desc">Single-column stacked flows, simplified navigation drawers, touch-friendly tap targets (minimum 44px), and fluid percentage-based typography.</p>
+          </div>
+
+          <div class="device-card">
+            <div class="device-icon">
+              <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" fill="none" stroke-width="2">
+                <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
+                <line x1="12" y1="18" x2="12.01" y2="18"></line>
+              </svg>
+            </div>
+            <h3 class="device-name">Tablet Screens</h3>
+            <span class="breakpoint-code">@media (min-width: 641px) and (max-width: 1024px)</span>
+            <p class="device-desc">Balanced 2-column CSS Grid layouts, moderate padding, adaptive card containers, and balanced touch/mouse navigation.</p>
+          </div>
+
+          <div class="device-card">
+            <div class="device-icon">
+              <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" fill="none" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+            </div>
+            <h3 class="device-name">Desktop Screens</h3>
+            <span class="breakpoint-code">@media (min-width: 1025px)</span>
+            <p class="device-desc">Full 3-to-4 column multi-dimensional dashboard layouts, persistent navigation bars, hover states, and rich interactive components.</p>
+          </div>
+        </div>
+
+        <!-- Interactive Screen Size Switcher & Live Layout Simulator -->
+        <div class="simulator-wrapper">
+          <div class="simulator-toolbar">
+            <div class="toolbar-title">
+              <span class="pulse-indicator"></span>
+              <strong>Interactive Layout & Viewport Simulator</strong>
+            </div>
+            <div class="viewport-presets" id="viewportPresets">
+              <button class="preset-btn active" data-mode="desktop" id="btnPresetDesktop">
+                <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" stroke-width="2">
+                  <rect x="2" y="3" width="20" height="14" rx="2"></rect>
+                  <line x1="8" y1="21" x2="16" y2="21"></line>
+                  <line x1="12" y1="17" x2="12" y2="21"></line>
+                </svg>
+                Desktop (100%)
+              </button>
+              <button class="preset-btn" data-mode="tablet" id="btnPresetTablet">
+                <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" stroke-width="2">
+                  <rect x="4" y="2" width="16" height="20" rx="2"></rect>
+                </svg>
+                Tablet (768px)
+              </button>
+              <button class="preset-btn" data-mode="mobile" id="btnPresetMobile">
+                <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" stroke-width="2">
+                  <rect x="5" y="2" width="14" height="20" rx="2"></rect>
+                </svg>
+                Mobile (375px)
+              </button>
+            </div>
+          </div>
+
+          <!-- Sandbox Screen Container -->
+          <div class="simulator-stage">
+            <div class="simulated-device-frame mode-desktop" id="simulatedFrame">
+              
+              <div class="frame-browser-bar">
+                <div class="browser-dots">
+                  <span class="dot dot-red"></span>
+                  <span class="dot dot-yellow"></span>
+                  <span class="dot dot-green"></span>
+                </div>
+                <div class="browser-address">
+                  <svg viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" fill="none" stroke-width="2">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                  </svg>
+                  https://apexplanet-app.local/demo-viewport
+                </div>
+                <div class="frame-size-badge" id="frameSizeBadge">Width: 100% (Desktop)</div>
+              </div>
+
+              <!-- Inside Simulated Content -->
+              <div class="sim-content">
+                <div class="sim-header">
+                  <div class="sim-brand">Apex Tech Portal</div>
+                  <div class="sim-nav-status" id="simNavStatus">Desktop Nav Active</div>
+                </div>
+
+                <div class="sim-hero-banner">
+                  <div class="sim-badge">Dynamic Viewport Sandbox</div>
+                  <h4 class="sim-title">Layout Adapts In Real-Time</h4>
+                  <p class="sim-subtitle">Watch cards rearrange automatically from 3-columns to 2-columns to a single stacked mobile column.</p>
+                </div>
+
+                <div class="sim-cards-grid" id="simCardsGrid">
+                  <div class="sim-card">
+                    <div class="sim-card-icon">⚡</div>
+                    <h5>Fast Performance</h5>
+                    <p>Lightweight CSS3 rules execute with zero runtime overhead.</p>
+                    <span class="sim-tag">CSS Grid</span>
+                  </div>
+                  <div class="sim-card">
+                    <div class="sim-card-icon">📐</div>
+                    <h5>Fluid Breakpoints</h5>
+                    <p>Elastic flex containers reflow proportionally across screens.</p>
+                    <span class="sim-tag">Flexbox</span>
+                  </div>
+                  <div class="sim-card">
+                    <div class="sim-card-icon">📱</div>
+                    <h5>Mobile First</h5>
+                    <p>Prioritizing core content before progressively enhancing layout.</p>
+                    <span class="sim-tag">Responsive</span>
+                  </div>
+                </div>
+
+                <div class="sim-footer">
+                  <span>Current CSS State: <strong id="simCssState">Desktop Multi-Column Grid (min-width: 1025px)</strong></span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Code Snippet Display -->
+          <div class="code-preview-card">
+            <div class="code-preview-header">
+              <span class="code-title">CSS Media Queries Implementation</span>
+              <button class="btn-copy-code" id="btnCopyCode" title="Copy snippet">Copy CSS</button>
+            </div>
+            <pre class="code-block"><code>/* Mobile Base Rules */
+.cards-grid { display: flex; flex-direction: column; gap: 1rem; }
+
+/* Tablet Breakpoint (min-width: 641px) */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .cards-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+}
+
+/* Desktop Breakpoint (min-width: 1025px) */
+@media (min-width: 1025px) {
+  .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+}</code></pre>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 2: Build an Interactive Quiz or Image Carousel Using JavaScript -->
+    <section class="task-section" id="task2">
+      <div class="section-container">
+
+        <div class="section-header">
+          <div class="task-tag">Module 2</div>
+          <h2 class="section-title">Build an Interactive Quiz or Image Carousel Using JavaScript</h2>
+          <p class="section-desc">
+            Demonstrating advanced DOM manipulation, event listeners, dynamic state management, and animated transitions through two interactive projects: a comprehensive <strong>Web Tech Quiz</strong> with live scoring and an <strong>Auto-Rotating Image Carousel</strong>.
+          </p>
+        </div>
+
+        <div class="task2-split-layout">
+          
+          <!-- PART 1: Interactive JavaScript Quiz -->
+          <div class="interactive-card quiz-card" id="quizContainer">
+            <div class="card-header">
+              <div class="header-badge-title">
+                <span class="icon-circle">
+                  <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" fill="none" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                  </svg>
+                </span>
+                <div>
+                  <h3 class="card-title">Web Dev Knowledge Quiz</h3>
+                  <p class="card-subtitle">Test your CSS & JavaScript expertise</p>
+                </div>
+              </div>
+              <div class="quiz-stat-pill" id="quizStatPill">
+                <span id="quizQuestionCount">Question 1 of 5</span>
+              </div>
+            </div>
+
+            <!-- Quiz Progress Bar -->
+            <div class="quiz-progress-track">
+              <div class="quiz-progress-fill" id="quizProgressFill" style="width: 20%;"></div>
+            </div>
+
+            <!-- Quiz Body: Start Screen -->
+            <div class="quiz-view" id="quizStartView">
+              <div class="quiz-intro">
+                <div class="intro-graphic">🎯</div>
+                <h4>Interactive Skills Assessment</h4>
+                <p>Answer 5 multiple-choice questions covering CSS media queries, responsive design, JavaScript promises, and DOM manipulation.</p>
+                <div class="quiz-perks">
+                  <span>⏱️ No time limit</span>
+                  <span>✨ Instant answer feedback</span>
+                  <span>🏆 Live score summary</span>
+                </div>
+                <button class="btn btn-primary btn-block" id="btnStartQuiz">
+                  <span>Start Quiz</span>
+                  <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" fill="none" stroke-width="2">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- Quiz Body: Question Screen (hidden initially) -->
+            <div class="quiz-view hidden" id="quizQuestionView">
+              <div class="question-header">
+                <span class="category-badge" id="quizCategory">CSS Architecture</span>
+                <h4 class="question-prompt" id="quizQuestionPrompt">Which CSS rule enables responsive styles for varying screen widths?</h4>
+              </div>
+
+              <div class="quiz-options-list" id="quizOptionsList">
+                <!-- Dynamically populated options -->
+              </div>
+
+              <!-- Answer Feedback Alert -->
+              <div class="quiz-feedback-box hidden" id="quizFeedbackBox">
+                <span class="feedback-icon" id="feedbackIcon">✓</span>
+                <span class="feedback-text" id="feedbackText">Correct! Media queries apply rules based on screen conditions.</span>
+              </div>
+
+              <div class="quiz-footer-actions">
+                <div class="live-score-text">Current Score: <strong id="liveScoreCount">0</strong> / 5</div>
+                <button class="btn btn-primary" id="btnNextQuestion" disabled>
+                  <span>Next Question</span>
+                  <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" fill="none" stroke-width="2">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- Quiz Body: Results Screen (hidden initially) -->
+            <div class="quiz-view hidden" id="quizResultView">
+              <div class="quiz-results-card">
+                <div class="result-badge-icon" id="resultEmoji">🎉</div>
+                <h4>Quiz Completed!</h4>
+                <div class="score-circle">
+                  <span class="score-number" id="finalScoreText">5 / 5</span>
+                  <span class="score-percent" id="finalPercentText">100% Score</span>
+                </div>
+                <p class="result-message" id="resultMessage">Outstanding performance! You have mastered advanced styling and JavaScript fundamentals.</p>
+                <div class="result-details">
+                  <div class="result-stat">
+                    <span>Correct Answers</span>
+                    <strong id="statCorrect">5</strong>
+                  </div>
+                  <div class="result-stat">
+                    <span>Accuracy</span>
+                    <strong id="statAccuracy">100%</strong>
+                  </div>
+                  <div class="result-stat">
+                    <span>Internship Badge</span>
+                    <strong>Earned 🏅</strong>
+                  </div>
+                </div>
+                <button class="btn btn-secondary btn-block" id="btnRetakeQuiz">
+                  <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" stroke-width="2">
+                    <polyline points="1 4 1 10 7 10"></polyline>
+                    <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+                  </svg>
+                  <span>Retake Quiz</span>
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- PART 2: Interactive Image Carousel -->
+          <div class="interactive-card carousel-card" id="carouselContainer">
+            <div class="card-header">
+              <div class="header-badge-title">
+                <span class="icon-circle icon-circle-teal">
+                  <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" fill="none" stroke-width="2">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                    <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                    <polyline points="21 15 16 10 5 21"></polyline>
+                  </svg>
+                </span>
+                <div>
+                  <h3 class="card-title">Technology Showcase Carousel</h3>
+                  <p class="card-subtitle">Auto-rotating slides with manual controls</p>
+                </div>
+              </div>
+              <div class="carousel-control-badge">
+                <button class="btn-icon-toggle" id="btnCarouselPlayPause" title="Pause / Play Auto Slide" aria-label="Toggle autoplay">
+                  <svg id="playPauseIcon" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" fill="currentColor">
+                    <rect x="6" y="4" width="4" height="16"></rect>
+                    <rect x="14" y="4" width="4" height="16"></rect>
+                  </svg>
+                  <span id="playPauseLabel">Auto (3.5s)</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Carousel Slide Track Frame -->
+            <div class="carousel-viewport" id="carouselViewport">
+              
+              <!-- Slide 1 -->
+              <div class="carousel-slide active" data-index="0">
+                <div class="slide-visual visual-tech-1">
+                  <div class="slide-badge">Architecture</div>
+                  <div class="slide-graphic">
+                    <svg viewBox="0 0 100 100" class="graphic-svg">
+                      <circle cx="50" cy="50" r="40" stroke="rgba(56,189,248,0.4)" stroke-width="4" fill="none" />
+                      <circle cx="50" cy="50" r="25" stroke="#38bdf8" stroke-width="3" stroke-dasharray="10 5" fill="none" />
+                      <circle cx="50" cy="50" r="10" fill="#38bdf8" />
+                    </svg>
+                  </div>
+                </div>
+                <div class="slide-content">
+                  <span class="slide-tag">Module 01</span>
+                  <h4>Responsive Design & Fluid Breakpoints</h4>
+                  <p>Harnessing CSS Grid and Flexbox to build mobile-first web pages that adapt dynamically to any screen dimension.</p>
+                </div>
+              </div>
+
+              <!-- Slide 2 -->
+              <div class="carousel-slide" data-index="1">
+                <div class="slide-visual visual-tech-2">
+                  <div class="slide-badge">JavaScript Engine</div>
+                  <div class="slide-graphic">
+                    <svg viewBox="0 0 100 100" class="graphic-svg">
+                      <polygon points="50,15 90,85 10,85" stroke="#14b8a6" stroke-width="3" fill="rgba(20,184,166,0.15)" />
+                      <circle cx="50" cy="62" r="12" fill="#14b8a6" />
+                    </svg>
+                  </div>
+                </div>
+                <div class="slide-content">
+                  <span class="slide-tag">Module 02</span>
+                  <h4>Interactive DOM & State Handling</h4>
+                  <p>Event delegation, real-time input validation, and reactive components built entirely in lightweight Vanilla JavaScript.</p>
+                </div>
+              </div>
+
+              <!-- Slide 3 -->
+              <div class="carousel-slide" data-index="2">
+                <div class="slide-visual visual-tech-3">
+                  <div class="slide-badge">Network & API</div>
+                  <div class="slide-graphic">
+                    <svg viewBox="0 0 100 100" class="graphic-svg">
+                      <rect x="20" y="20" width="60" height="60" rx="8" stroke="#818cf8" stroke-width="3" fill="rgba(129,140,248,0.15)" />
+                      <line x1="30" y1="40" x2="70" y2="40" stroke="#818cf8" stroke-width="3" stroke-linecap="round" />
+                      <line x1="30" y1="50" x2="60" y2="50" stroke="#818cf8" stroke-width="3" stroke-linecap="round" />
+                      <line x1="30" y1="60" x2="50" y2="60" stroke="#818cf8" stroke-width="3" stroke-linecap="round" />
+                    </svg>
+                  </div>
+                </div>
+                <div class="slide-content">
+                  <span class="slide-tag">Module 03</span>
+                  <h4>Asynchronous Fetch & REST APIs</h4>
+                  <p>Handling live network calls with async/await, promise chains, skeleton placeholders, and reliable error fallbacks.</p>
+                </div>
+              </div>
+
+              <!-- Slide 4 -->
+              <div class="carousel-slide" data-index="3">
+                <div class="slide-visual visual-tech-4">
+                  <div class="slide-badge">Visual Aesthetics</div>
+                  <div class="slide-graphic">
+                    <svg viewBox="0 0 100 100" class="graphic-svg">
+                      <path d="M20,50 Q50,10 80,50 T140,50" stroke="#f43f5e" stroke-width="3" fill="none" />
+                      <circle cx="50" cy="50" r="30" stroke="#f59e0b" stroke-width="3" fill="rgba(245,158,11,0.15)" />
+                    </svg>
+                  </div>
+                </div>
+                <div class="slide-content">
+                  <span class="slide-tag">Design System</span>
+                  <h4>Glassmorphism & Micro-Interactions</h4>
+                  <p>Soft layered shadows, backdrop blur filters, smooth color transitions, and polished typography for a wow factor.</p>
+                </div>
+              </div>
+
+              <!-- Carousel Navigation Arrows -->
+              <button class="carousel-nav-btn prev" id="carouselPrevBtn" aria-label="Previous slide">
+                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" fill="none" stroke-width="2.5">
+                  <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+              </button>
+              <button class="carousel-nav-btn next" id="carouselNextBtn" aria-label="Next slide">
+                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" fill="none" stroke-width="2.5">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
+            </div>
+
+            <!-- Auto-Slide Countdown Bar -->
+            <div class="carousel-timer-bar">
+              <div class="carousel-timer-fill" id="carouselTimerFill"></div>
+            </div>
+
+            <!-- Pagination Dots -->
+            <div class="carousel-pagination" id="carouselPagination">
+              <button class="carousel-dot active" data-slide="0" aria-label="Slide 1"></button>
+              <button class="carousel-dot" data-slide="1" aria-label="Slide 2"></button>
+              <button class="carousel-dot" data-slide="2" aria-label="Slide 3"></button>
+              <button class="carousel-dot" data-slide="3" aria-label="Slide 4"></button>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 3: Fetch Data from an API Using JavaScript -->
+    <section class="task-section" id="task3">
+      <div class="section-container">
+
+        <div class="section-header">
+          <div class="task-tag">Module 3</div>
+          <h2 class="section-title">Fetch Data from an API Using JavaScript</h2>
+          <p class="section-desc">
+            Modern web applications rely on asynchronous communication to fetch remote data without reloading the page. Using the native JavaScript <code>fetch()</code> API with <code>async/await</code>, this module retrieves user profiles from the public <strong>JSONPlaceholder API</strong> and dynamically displays them inside interactive cards, complete with loading skeletons and robust error handling.
+          </p>
+        </div>
+
+        <!-- API Interactive Control Bar -->
+        <div class="api-control-panel">
+          <div class="api-actions-left">
+            <button class="btn btn-primary" id="btnLoadApiData">
+              <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" fill="none" stroke-width="2" id="apiBtnIcon">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              <span id="apiBtnText">Load API Data</span>
+            </button>
+
+            <button class="btn btn-outline btn-sm" id="btnClearApiData">
+              Clear
+            </button>
+          </div>
+
+          <!-- Search Filter Input -->
+          <div class="api-search-box">
+            <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" stroke-width="2" class="search-icon">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="apiSearchInput" placeholder="Filter fetched users by name, email, or city..." disabled autocomplete="off">
+            <button class="btn-clear-search hidden" id="btnClearSearch" aria-label="Clear search">&times;</button>
+          </div>
+
+          <!-- Live Status Badge -->
+          <div class="api-status-badge" id="apiStatusBadge">
+            <span class="status-dot"></span>
+            <span id="apiStatusText">Ready to fetch</span>
+          </div>
+        </div>
+
+        <!-- Feedback & Error Message Container -->
+        <div class="api-message-banner hidden" id="apiMessageBanner">
+          <div class="message-content">
+            <span class="message-icon" id="apiMessageIcon">⚠️</span>
+            <span class="message-text" id="apiMessageText">Network error occurred.</span>
+          </div>
+          <button class="btn-dismiss-msg" id="btnDismissMsg" aria-label="Dismiss message">&times;</button>
+        </div>
+
+        <!-- Dynamic Content Grid Container -->
+        <div class="api-cards-grid" id="apiCardsContainer">
+          
+          <!-- Default Empty Prompt State -->
+          <div class="empty-api-state" id="apiEmptyState">
+            <div class="empty-icon">🌐</div>
+            <h3>No API Data Loaded Yet</h3>
+            <p>Click the <strong>"Load API Data"</strong> button above to initiate a live asynchronous GET request to the JSONPlaceholder public REST endpoint.</p>
+            <span class="api-endpoint-pill">GET https://jsonplaceholder.typicode.com/users</span>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 4: Internship Milestone Progress Dashboard -->
+    <section class="task-section progress-section" id="progressSection">
+      <div class="section-container">
+        
+        <div class="progress-dashboard-card">
+          <div class="dashboard-header">
+            <div>
+              <span class="badge badge-task">Milestone Dashboard</span>
+              <h3 class="dashboard-title">Task 3 Completion Tracker</h3>
+              <p class="dashboard-subtitle">ApexPlanet Software Pvt. Ltd. Internship Progress</p>
+            </div>
+            <div class="progress-percentage-display">
+              <span class="percent-val" id="totalProgressPercent">33%</span>
+              <span class="percent-label">Completed</span>
+            </div>
+          </div>
+
+          <!-- Master Progress Bar -->
+          <div class="master-progress-track">
+            <div class="master-progress-fill" id="masterProgressBar" style="width: 33%;"></div>
+          </div>
+
+          <!-- 3 Task Milestones Checklist -->
+          <div class="milestones-grid">
+            
+            <div class="milestone-item completed" id="milestoneTask1">
+              <div class="milestone-status">
+                <span class="check-icon">✓</span>
+              </div>
+              <div class="milestone-info">
+                <h4>Task 1: Responsive Design</h4>
+                <p>Media queries implemented for Mobile, Tablet & Desktop with interactive viewport sandbox.</p>
+              </div>
+              <span class="milestone-badge">Verified</span>
+            </div>
+
+            <div class="milestone-item" id="milestoneTask2">
+              <div class="milestone-status">
+                <span class="check-icon" id="milestone2Icon">○</span>
+              </div>
+              <div class="milestone-info">
+                <h4>Task 2: Interactive Quiz & Carousel</h4>
+                <p>JavaScript quiz logic with score calculations + auto-rotating visual carousel.</p>
+              </div>
+              <span class="milestone-badge pending" id="milestone2Badge">In Progress</span>
+            </div>
+
+            <div class="milestone-item" id="milestoneTask3">
+              <div class="milestone-status">
+                <span class="check-icon" id="milestone3Icon">○</span>
+              </div>
+              <div class="milestone-info">
+                <h4>Task 3: Async API Fetching</h4>
+                <p>Live REST integration via fetch() with skeleton loading and dynamic card rendering.</p>
+              </div>
+              <span class="milestone-badge pending" id="milestone3Badge">In Progress</span>
+            </div>
+
+          </div>
+
+          <div class="dashboard-footer">
+            <div class="intern-info">
+              <span>ApexPlanet Internship Submission</span> &bull;
+              <span>Timeline: <strong>9 Days</strong></span> &bull;
+              <span>Status: <strong class="text-teal">Active Evaluation</strong></span>
+            </div>
+            <button class="btn btn-outline btn-sm" id="btnResetProgress">
+              Reset Progress
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Professional Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <div class="logo-icon small">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+              <polyline points="2 17 12 22 22 17"></polyline>
+              <polyline points="2 12 12 17 22 12"></polyline>
+            </svg>
+          </div>
+          <span>ApexPlanet Software</span>
+        </div>
+        <p class="footer-copy-text">Advanced Styling &amp; JavaScript – Task 3 | ApexPlanet Software Pvt. Ltd.</p>
+      </div>
+
+      <div class="footer-nav">
+        <a href="#hero">Overview</a>
+        <a href="#task1">Media Queries</a>
+        <a href="#task2">Quiz &amp; Carousel</a>
+        <a href="#task3">API Fetch</a>
+      </div>
+
+      <div class="footer-back-top">
+        <a href="#hero" class="btn-back-top" title="Scroll to top" aria-label="Scroll to top">
+          <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" fill="none" stroke-width="2">
+            <polyline points="18 15 12 9 6 15"></polyline>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
